@@ -8,6 +8,8 @@ int	ft_str_is_printable(char *str);
 
 int	main(void)
 {
+	char string[] = {'a', 31, 0};
+
 	char non_printable[33];
 	char printable[96];
 	char ascii[128];
@@ -28,6 +30,7 @@ int	main(void)
 
 	printf("0 : %d\n", ft_str_is_printable(non_printable));
 	printf("0 : %d\n", ft_str_is_printable(ascii));
+	printf("0 : %d\n", ft_str_is_printable(string));
 	printf("1 : %d\n", ft_str_is_printable(printable));
 	printf("1 : %d\n", ft_str_is_printable(""));
 	return (0);

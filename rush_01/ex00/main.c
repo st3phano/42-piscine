@@ -1,10 +1,42 @@
 /*
 norminette -R CheckForbiddenSourceHeader
-gcc -Wall -Wextra -Werror -o main main.c
+cc -Wall -Wextra -Werror -o rush-01 *.c
 */
 #include <unistd.h>
 
-void print_table(char **table)
+int		fill_board(char board[4][4], char rules[16], int cur_row, int cur_col);
+
+/*
+ The length of the string must be 31
+*/
+char	validate_and_get_rules(char *arg, char rules[16])
+{
+	int	i;
+
+	i = 0;
+	while (arg[i] != '\0')
+	{
+		if (i % 2 == 0)
+		{
+			if (arg[i] < '1' || arg[i] > '4')
+				return (0);
+			else if (i < 31)
+				rules[i / 2] = arg[i];
+		}
+		else
+		{
+			if (arg[i] != ' ')
+				return (0);
+		}
+		++i;
+	}
+	if (i == 31)
+		return (1);
+	else
+		return (0);
+}
+
+int	print_board(char board[4][4])
 {
 	int	row;
 	int	col;
@@ -15,65 +47,30 @@ void print_table(char **table)
 		col = 0;
 		while (col < 4)
 		{
-			write(1, table[row] + col, 1);
-			write(1, " ", 1);
+			write(1, &board[row][col], 1);
+			if (col < 3)
+				write(1, " ", 1);
 			++col;
 		}
 		write(1, "\n", 1);
 		++row;
 	}
-}
-
-char	can_place_box(char **table, int cur_row, int cur_col, char box)
-{
-	int prev_row;
-	int	prev_col;
-
-	prev_row = 0;
-	while (prev_row < cur_row)
-	{
-		if (table[prev_row][cur_col] == box)
-			return (0);
-		++prev_row;
-	}
-	prev_col = 0;
-	while (prev_col < cur_col)
-	{
-		if (table[cur_row][prev_col] == box)
-			return (0);
-		++prev_col;
-	}
 	return (1);
 }
 
-void	fill_table(char **table, int cur_row, int cur_col)
+int	main(int argc, char *argv[])
 {
-	char	box;
+	char	rules[16];
+	char	board[4][4];
+	int		solved;
 
-	if (cur_row == 4)
-		print_table(table);
+	if (argc != 2 || validate_and_get_rules(argv[1], rules) == 0)
+		solved = 0;
 	else
-	{
-		box = '1';
-		while (box < '5')
-		{
-			if (can_place_box(table, cur_row, cur_col, box))
-			{
-				table[cur_row][cur_col] = box;
-				if (cur_col == 4)
-					fill_table(table, cur_row + 1, 0);
-				else
-					fill_table(table, cur_row, cur_col + 1);
-			}
-			++box;
-		}
-	}
-}
-
-int	main(void)
-{
-	char	table[4][4];
-
-	fill_table(table, 0, 0);
+		solved = fill_board(board, rules, 0, 0);
+	if (solved == 1)
+		print_board(board);
+	else
+		write(1, "Error\n", 6);
 	return (0);
 }
