@@ -14,7 +14,7 @@ int	main(void)
 	char dest[] = "---------";
 
 	// compare with strcpy()
-	printf("return\t=\t%s\n", ft_strcpy(dest, src));
+	printf("return\t=\t%s\n", strcpy(dest, src));
 	printf("dest\t=\t%s\n", dest);
 	printf("overrun\t=\t%s\n", overrun);
 	return (0);

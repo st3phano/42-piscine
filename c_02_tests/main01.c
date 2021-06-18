@@ -12,7 +12,7 @@ int	main(void)
 	char dest[] = "---------";
 
 	// compare with strncpy()
-	printf("return\t=\t%s\n", ft_strncpy(dest, src, 5));
+	printf("return\t=\t%s\n", strncpy(dest, src, 5));
 	printf("dest\t=\t%s\n", dest);
 	return (0);
 }

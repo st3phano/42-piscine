@@ -9,9 +9,9 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb);
 int	main(void)
 {
 	char	s1[99] = "1";
-	char	s2[99] = "abc";
+	char	s2[99] = "";
 	char	s3[99] = "1";
-	char	s4[99] = "abc";
+	char	s4[99] = "";
 
 	printf("ft_strcat:\t%s|\n", ft_strncat(s1, s2 , 10));
 	printf("strcat:\t\t%s|\n", strncat(s3, s4, 10));

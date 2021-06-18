@@ -8,11 +8,11 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size);
 
 int	main(void)
 {
-	char src1[] = "1234567890";
-	char dest1[] = "abcdefghij";
+	char src1[99] = "1234567890";
+	char dest1[99] = "abcdefghij";
 
-	char src2[] = "1234567890";
-	char dest2[] = "abcdefghij";
+	char src2[99] = "1234567890";
+	char dest2[99] = "abcdefghij";
 
 	printf("strlcpy 0:\t%zu, %s\n", strlcpy(dest1, src1, 0), dest1);
 	printf("ft_strlcpy 0:\t%u, %s\n", ft_strlcpy(dest2, src2, 0), dest2);

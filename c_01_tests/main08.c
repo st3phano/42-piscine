@@ -9,7 +9,7 @@ void	ft_sort_int_tab(int *tab, int size);
 
 int	main(void)
 {
-	int array_odd[] = {5, 4, 3, 2, 1};
+	int array_odd[] = {-1, -4, -3, -2, -5};
 	int array_even[] = {4, 3, 2, 1};
 
 	for (int i = 0; i < ODD_SIZE; ++i)

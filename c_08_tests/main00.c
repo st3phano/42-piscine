@@ -1,0 +1,3 @@
+/*
+norminette -R CheckDefine
+*/
