@@ -15,19 +15,19 @@ int	main(void)
 	nbr_converted = ft_convert_base("\t\n\v\f\r +-+--0",
 										"0123456789",
 											"0123456789abcdef");
-	printf("%s\n", nbr_converted);
+	printf("%s|\n", nbr_converted);
 	free(nbr_converted);
 
 	nbr_converted = ft_convert_base("\t\n\v\f\r +-+--2147483648",
 										"0123456789",
 											"0123456789abcdef");
-	printf("%s\n", nbr_converted);
+	printf("%s|\n", nbr_converted);
 	free(nbr_converted);
 
 	nbr_converted = ft_convert_base("\t\n\v\f\r +-+-2147483647",
 										"0123456789",
 											"0123456789abcdef");
-	printf("%s\n", nbr_converted);
+	printf("%s|\n", nbr_converted);
 	free(nbr_converted);
 
 	printf("%s\n", "\nDEC TO DEC:");

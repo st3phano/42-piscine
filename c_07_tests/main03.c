@@ -9,9 +9,9 @@ char	*ft_strjoin(int size, char **strs, char *sep);
 
 int	main(void)
 {
-	char *src[] = {"a1", "b", "c2", "d", "e3"};
+	char *src[] = {"", "b", "", "d", "e3"};
 
-	char *dest = ft_strjoin(5, src, "/-/");
+	char *dest = ft_strjoin(5, src, "");
 	printf("%s|\n", dest);
 	free(dest);
 
