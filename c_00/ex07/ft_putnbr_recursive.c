@@ -5,8 +5,12 @@ void	putnbr(unsigned int unsigned_nb)
 	char	digit;
 
 	if (unsigned_nb > 9)
+	{
 		putnbr(unsigned_nb / 10);
-	digit = '0' + (unsigned_nb % 10);
+		digit = '0' + (unsigned_nb % 10);
+	}
+	else
+		digit = '0' + unsigned_nb;
 	write(1, &digit, 1);
 }
 
