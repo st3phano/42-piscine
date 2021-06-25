@@ -1,19 +1,22 @@
 #include <unistd.h>
 
+void	putnbr(unsigned int unsigned_nb)
+{
+	char	digit;
+
+	if (unsigned_nb > 9)
+		putnbr(unsigned_nb / 10);
+	digit = '0' + (unsigned_nb % 10);
+	write(1, &digit, 1);
+}
+
 void	ft_putnbr(int nb)
 {
-	unsigned int	nb_unsigned;
-	char			digit;
-
 	if (nb < 0)
 	{
-		nb_unsigned = nb * -1;
 		write(1, "-", 1);
+		putnbr(nb * -1);
 	}
 	else
-		nb_unsigned = nb;
-	if (nb_unsigned > 9)
-		ft_putnbr(nb_unsigned / 10);
-	digit = '0' + (nb_unsigned % 10);
-	write(1, &digit, 1);
+		putnbr(nb);
 }
