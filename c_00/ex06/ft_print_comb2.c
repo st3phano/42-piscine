@@ -1,6 +1,9 @@
 #include <unistd.h>
 
-// number must be greater or equal to 0 and less than 100
+/*
+ NUMBER must be:
+ greater or equal 0 and lower or equal 99
+*/
 void	print_number(int number)
 {
 	char	digit;
@@ -17,10 +20,10 @@ void	ft_print_comb2(void)
 	int	second_number;
 
 	first_number = 0;
-	while (first_number < 99)
+	while (first_number <= 98)
 	{
 		second_number = first_number + 1;
-		while (second_number < 100)
+		while (second_number <= 99)
 		{
 			print_number(first_number);
 			write(1, " ", 1);
